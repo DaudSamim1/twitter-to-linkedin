@@ -2,11 +2,19 @@
   "manifest_version": 3,
   "name": "Twitter to LinkedIn",
   "version": "0.1",
-
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs3WazJ+Y+NP0TXtQp61ASAh2jdPI8QLgMin10FjmH/mqRMdjoideaJyYoGe0qllgTItNAFKjkpk02e7H1GumeAHmCcGelTihHWTvwq/JQ4MPDu+RGrKta76vNv0LiQkPAR8edlWf/Q2tkaXSIaXfuha0FB2LA4y+yMaIYp1yayIsE9JbDcLpDsLfg5oc+cd5kJIiQPoxVM2dY29HvpUq5NEf3qtPsuKscr6nNKSBUUMPC6rTF7grnZAHDLsyMB/epQFXDNagmvBCPca9Ied4sRHTMtbtIWEe2OvKF3R7dEU/geoGAyrVWekdU+I2B7FmQB1R41sw1KmL6KEMuPkpfQIDAQAB",
+  "oauth2":{
+    "client_id":  "267532216180-r71s28j75qsece1967hf001ia5mtp88v.apps.googleusercontent.com",
+    "scopes" : [
+      "email" ,
+      "profile"
+    ]
+  } ,
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["./content.js"]
+      "matches" : 
+      ["<all_urls>"],
+      "js": ["content.js"]
     }
   ],
   "background": {
@@ -15,5 +23,14 @@
   "action": {
     "default_popup": "./popup.html",
     "default_title": "Extension"
-  }
+  },
+  "permissions" : [
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "identity",
+    "identity.email"
+
+  ]
 }

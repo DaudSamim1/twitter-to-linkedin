@@ -55,19 +55,4 @@ module.exports = {
       chunks: ["popup"],
     }),
   ],
-  resolve: {
-    fallback: {
-      util: require.resolve("util/"),
-    },
-  },
-  // resolve: {
-  //   fallback: {
-  //     path: require.resolve("path-browserify"),
-  //   },
-  // },
-  // resolve: {
-  //   fallback: {
-  //     fs: require.resolve("fs"),
-  //   },
-  // },
 };
