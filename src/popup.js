@@ -1,5 +1,5 @@
 import "./assets/styles/style.css";
-import "./assets/styles/ImageStyling.scss";
+import "./assets/styles/customButtonstyle.scss";
 let display = document.getElementById("textToImage");
 
 let loginBtn = document.getElementById("login-btn");
