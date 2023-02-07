@@ -41,7 +41,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "src/assets/styles/style.css",
+          from: "src/assets/styles/customButtonstyle.scss",
           to: "assets/styles",
         },
         {

@@ -1,6 +1,5 @@
-import "./assets/styles/style.css";
+import "./assets/styles/customButtonstyle.scss";
 let sendButton;
-
 // Initialize an interval to check for the menu button every second
 let initialInterval = setInterval(() => {
   document.querySelectorAll(".r-1joea0r").forEach((item) => {
@@ -79,10 +78,15 @@ let initialInterval = setInterval(() => {
                 message: "postData",
                 data: tweetData,
               });
+
+              chrome.tabs.create({ url: "popup.html" });
             });
           }
         }
-      }, 2000);
+      }, 0);
     });
   });
-}, 1000);
+}, 1000); 
+
+
+
