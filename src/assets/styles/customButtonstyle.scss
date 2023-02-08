@@ -10,7 +10,7 @@
   width: 700px;
   height: 580px;
   background: #1a1d25;
-  padding-top: 60px;
+  padding-top: 40px;
 
   .middleContainer {
     width: 300px;
@@ -53,7 +53,7 @@
   }
 
   .middleContainer h1 {
-    color: #E0E0E0;
+    color: #e0e0e0;
     font-weight: 700;
     text-transform: capitalize;
     text-align: center;
@@ -64,11 +64,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
 
     label {
       font-weight: 600;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 22px;
       color: #e0e0e0;
       padding: 10px 2px;
@@ -80,12 +80,11 @@
       padding: 10px 26px 10px 20px;
       background-color: transparent;
       outline: none;
-      color: #E0E0E0;
-      font-size: 18px;
+      color: #e0e0e0;
+      font-size: 16px;
     }
 
-    
-    button  {
+    button {
       width: 100%;
       background: #4486e9;
       transition: background-color 0.3s, box-shadow 0.3s;
@@ -101,11 +100,11 @@
       &:hover {
         box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
       }
-    
+
       &:active {
         background-color: transparent;
       }
-    
+
       &:focus {
         outline: none;
         box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
@@ -117,6 +116,50 @@
       font-size: 20px;
       text-align: center;
       color: #fff;
+    }
+    .forgetContent {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 6px 10px 0 10px;
+
+      .checkBox {
+        display: flex;
+        align-items: center;
+
+        input[type="checkbox"] {
+          display: none;
+        }
+
+        label[for="checkbox"] {
+          width: 20px;
+          height: 18px;
+          border: 1px solid #4486e9;
+          display: inline-block;
+          border-radius: 4px;
+        }
+
+        input[type="checkbox"]:checked + label[for="checkbox"] {
+          background-color: black;
+        }
+        span {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          margin-left: 8px;
+          line-height: 24px;
+          color: #e0e0e0;
+        }
+       
+      }
+      .forgetPswd a{
+          text-decoration: none;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 24px;
+      color: #4486E9;
+    }
     }
   }
 }
@@ -135,6 +178,7 @@
   font-family: sans-serif;
   color: rgb(15, 20, 25) !important;
   cursor: pointer;
+  margin-right: 14px;
 }
 
 .linkinIcon {
@@ -155,13 +199,13 @@
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-  color: #E0E0E0;
+  color: #e0e0e0;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 12px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: #4486E9;
+  background: #4486e9;
   cursor: pointer;
 
   &:hover {
