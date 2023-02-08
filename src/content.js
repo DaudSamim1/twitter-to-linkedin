@@ -57,9 +57,7 @@ let initialInterval = setInterval(() => {
               let likesCount = articleT.querySelector(
                 "div[data-testid='like']"
               ).innerText;
-              let statisitics = articleT.querySelector(
-                ".css-901oao.css-16my406.r-poiln3.r-n6v787.r-1cwl3u0.r-1k6nrdp.r-1e081e0.r-qvutc0"
-              ).innerText;
+           
               let tweetData = {
                 avatar: imageUrl,
                 username: username,
@@ -69,7 +67,7 @@ let initialInterval = setInterval(() => {
                 reply: reply,
                 retweet: retweet,
                 likesCount: likesCount,
-                statisitics: statisitics,
+              
               };
 
               chrome.runtime.sendMessage({
