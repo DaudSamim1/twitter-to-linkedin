@@ -11,6 +11,9 @@ module.exports = {
     background: "./src/background.js",
     popup: "./src/popup.js",
     dashboard: "./src/dashboard.js",
+    signuppassword: "./src/signuppassword.js",
+    login:"./src/login.js",
+    resetpassword: "./src/login.js"
   },
   output: {
     path: path.resolve(__dirname, "build"),
@@ -60,5 +63,20 @@ module.exports = {
       template: path.resolve("./src/dashboard.html"),
       chunks: ["dashboard"],
     }),
+    new HtmlPlugin({
+     template: './src/signuppassword.html',
+      filename: 'signuppassword.html',
+      chunks: ['signuppassword']
+    }),
+    new HtmlPlugin({
+      template: './src/login.html',
+      filename: 'login.html',
+      chunks: ['login']
+    }),
+    new HtmlPlugin({
+      template: './src/resetpassword.html',
+      filename: 'resetpassword.html',
+      chunks: ['resetpassword']
+    })
   ],
 };

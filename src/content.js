@@ -7,7 +7,7 @@ let initialInterval = setInterval(() => {
       setTimeout(() => {
         if (document.querySelector("[data-testid='Dropdown']")) {
           let parentDiv = document.querySelector("[data-testid='Dropdown']");
-
+          
           let child = parentDiv.querySelector(".btn_unique");
           if (!child) {
             sendButton = document.querySelector("[data-testid='Dropdown']");

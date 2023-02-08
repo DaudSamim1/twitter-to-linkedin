@@ -3,11 +3,6 @@ import "./assets/styles/customButtonstyle.scss";
 let loginBtn = document.getElementById("login-btn");
 let logoutBtn = document.getElementById("logout-btn");
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.message === "postData") {
-    window.location.href = "dashboard.html";
-  }
-});
 loginBtn.addEventListener("click", () => {
   chrome.runtime.sendMessage({ message: "get_access_token" });
 
@@ -19,7 +14,7 @@ loginBtn.addEventListener("click", () => {
   });
 });
 
-const onGettingProfile = async (token) => {
+const onGettingProfile = async (token) => {  
   await chrome.runtime.sendMessage({
     message: "get_google_profile",
     token: token,
@@ -28,6 +23,7 @@ const onGettingProfile = async (token) => {
   chrome.runtime.onMessage.addListener(
     async (request, sender, sendResponse) => {
       if (request.message === "send_google_profile") {
+        // const { email } = request.profile;
         console.log(request.profile);
         localStorage.setItem("g-profile", JSON.stringify(request.profile));
       }
@@ -45,5 +41,8 @@ logoutBtn.addEventListener("click", () => {
 let NextBtn=document.getElementById("nextBtn")
 
 NextBtn.addEventListener("click" ,() =>{
-  window.location.href=chrome.runtime.getURL("signuppassword.html");
+
+  window.location.href=chrome.runtime.getURL("login.html");
+  // var newURL = "./signuppassword.html";
+  //       chrome.tabs.create({ url: newURL });
 })
