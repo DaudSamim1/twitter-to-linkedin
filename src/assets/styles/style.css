@@ -1,0 +1,27 @@
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  height: auto;
+  width: 400px;
+  text-align: center;
+}
+.btn_unique {
+  background: transparent;
+  border: navajowhite;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 14px;
+  padding-top: 6px;
+  padding-bottom: 14px;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.linkinIcon {
+  margin-left: 20px;
+}

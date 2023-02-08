@@ -53,4 +53,4 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 //   type: "popup"
 // })
 
-// chrome.tabs.create({ url: "popup.html" }) 
+// chrome.tabs.create({ url: "popup.html" })

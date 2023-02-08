@@ -10,6 +10,7 @@ module.exports = {
     content: "./src/content.js",
     background: "./src/background.js",
     popup: "./src/popup.js",
+    dashboard: "./src/dashboard.js",
     signuppassword: "./src/signuppassword.js",
     login:"./src/login.js",
     resetpassword: "./src/login.js"
@@ -58,7 +59,12 @@ module.exports = {
       chunks: ["popup"],
     }),
     new HtmlPlugin({
-      template: './src/signuppassword.html',
+      filename: "dashboard.html",
+      template: path.resolve("./src/dashboard.html"),
+      chunks: ["dashboard"],
+    }),
+    new HtmlPlugin({
+     template: './src/signuppassword.html',
       filename: 'signuppassword.html',
       chunks: ['signuppassword']
     }),
