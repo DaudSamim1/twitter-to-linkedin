@@ -12,8 +12,8 @@ module.exports = {
     popup: "./src/popup.js",
     dashboard: "./src/dashboard.js",
     signuppassword: "./src/signuppassword.js",
-    login:"./src/login.js",
-    resetpassword: "./src/login.js"
+    login: "./src/login.js",
+    resetpassword: "./src/login.js",
   },
   output: {
     path: path.resolve(__dirname, "build"),
@@ -36,6 +36,14 @@ module.exports = {
             options: {
               sourceMap: true,
             },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
           },
         ],
       },
@@ -64,19 +72,19 @@ module.exports = {
       chunks: ["dashboard"],
     }),
     new HtmlPlugin({
-     template: './src/signuppassword.html',
-      filename: 'signuppassword.html',
-      chunks: ['signuppassword']
+      template: "./src/signuppassword.html",
+      filename: "signuppassword.html",
+      chunks: ["signuppassword"],
     }),
     new HtmlPlugin({
-      template: './src/login.html',
-      filename: 'login.html',
-      chunks: ['login']
+      template: "./src/login.html",
+      filename: "login.html",
+      chunks: ["login"],
     }),
     new HtmlPlugin({
-      template: './src/resetpassword.html',
-      filename: 'resetpassword.html',
-      chunks: ['resetpassword']
-    })
+      template: "./src/resetpassword.html",
+      filename: "resetpassword.html",
+      chunks: ["resetpassword"],
+    }),
   ],
 };

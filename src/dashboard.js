@@ -3,7 +3,6 @@ import html2canvas from "html2canvas";
 let display = document.getElementById("textToImage");
 let displayImage = document.getElementById("ImageCon");
 
-
 chrome.storage.sync.get(["message"], function (result) {
   let array = [];
   array.push(result.message);
@@ -28,14 +27,12 @@ chrome.storage.sync.get(["message"], function (result) {
           >${item.reply}<span>reply</span></h3
         >
         <h3 class="exp"
-          >${item.retweet}<span>Retweet</span></h3
+          >${item.retweet}<span>Shares</span></h3
         >
         <h3 class="exp"
           >${item.likesCount}<span>likes</span></h3
         >
-        <h3 class="exp"
-          >${item.statisitics}</h3
-        >
+       
       </div>
     </div>
                     `;

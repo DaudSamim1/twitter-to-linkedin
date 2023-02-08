@@ -16,30 +16,77 @@ body {
 .mainContainer {
   background: #1e1e1e;
 }
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 66px;
+  margin-top: 21px;
+}
+.loginBtn,
+.signInBtn,
+.UpgradeBtn {
+  text-decoration: transparent;
+  color: white;
+  padding: 9px 19px;
+  background: #4486e9;
+  border-radius: 10px;
+  border: none;
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #4486e9;
+  }
+}
+.title {
+  background: -webkit-linear-gradient(90deg, #cb6bf8 0%, #5c32b5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: lowercase;
+}
+.UpgradePlan {
+  display: flex;
+  justify-content: space-between;
+  padding: 29px 87px 0 87px;
+  align-items: flex-end;
+}
+
+.planType {
+  color: #4486e9;
+}
+.CP {
+  color: white;
+}
+.waterMark {
+  float: right;
+  margin: 5px 32px 0px 0px;
+}
 .ImageCon {
-  background: blue;
   padding: 25px;
-  width: 609px;
+  width: 550px;
   margin: 18px auto;
-  border-radius: 20px;
+
+  background: linear-gradient(
+    104.34deg,
+    #ffdede 0%,
+    #fff8de 33.33%,
+    #e9ffde 66.67%,
+    #59dfbf 100%
+  );
+  // box-shadow: 10px 10px 20px rgba(17, 17, 17, 0.25);
+  border-radius: 15px;
 }
 .textToImage {
-  max-width: 90%;
-  height: 280px;
+  max-width: 94%;
   margin: 0 auto;
-  padding: 50px 7px;
+  padding: 25px 7px;
   text-align: start;
-  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(
     101.55deg,
     rgba(255, 255, 255, 0.9) 34.75%,
     rgba(255, 255, 255, 0.3) 100%
   );
-  /* Shadow */
 
   // box-shadow: 10px 10px 25px rgba(96, 96, 96, 0.25);
   border-radius: 15px;
@@ -97,9 +144,42 @@ body {
   background-color: rgb(99, 149, 99);
 }
 .showImage {
-  width: 609px;
+  width: 550px;
   margin: 18px auto;
 }
 .avatar {
   border-radius: 25px;
+}
+.effectsContainer {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+
+  background: linear-gradient(
+    91.95deg,
+    #0f1c3f 0%,
+    rgba(15, 28, 63, 0.35) 100%
+  );
+
+  // box-shadow: 10px 10px 20px rgba(17, 17, 17, 0.25);
+  border-radius: 15px;
+}
+.effectsContainer img {
+  height: 20px;
+  width: 20px;
+  color: white;
+}
+.colors,
+.response,
+.mode,
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: white;
 }
