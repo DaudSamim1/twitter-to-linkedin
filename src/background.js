@@ -3,6 +3,9 @@ console.log("background");
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.message == "postData") {
+    // chrome.tabs.create({ url: "./dashboard.html" }, function (tab) {
+
+    // });
     chrome.runtime.sendMessage(request.data);
   }
 });

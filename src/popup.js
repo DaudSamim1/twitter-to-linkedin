@@ -1,6 +1,9 @@
 import "./assets/styles/style.css";
 import "./assets/styles/ImageStyling.scss";
+
+import html2canvas from "html2canvas";
 let display = document.getElementById("textToImage");
+let diaplayImage = document.getElementById("mainContainer");
 
 let loginBtn = document.getElementById("login-btn");
 let logoutBtn = document.getElementById("logout-btn");
@@ -43,29 +46,50 @@ logoutBtn.addEventListener("click", () => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.message === "postData") {
     console.log(message.data);
-    let array = [];
-    array.push(message.data);
-    console.log(array);
+
+    const getPostData = JSON.parse(localStorage.getItem("post")) || [];
+    localStorage.setItem("post", JSON.stringify(message.data));
+
+    console.log(getPostData);
 
     let html = "";
 
-    array.map((item, index) => {
-      html += `
-        <div class="imageDisplay">
-        <div class="userDetail">
-           <img>
-          <span>${item.username}</span>
-          <span>${item.handle}</span>
-          <span>${item.timestamp}</span>
-</div>
-<p class="tweetText">${item.tweetText}</p>
-<div class="tweetExpressions">  <span><i class="fas fa-message" aria-hidden="true"></i>${item.reply}</span>
-          <span><i class="fas fa-retweet" aria-hidden="true"></i>${item.retweet}</span>
-          <span><i class="fas fa-heart" aria-hidden="true"></i>${item.likesCount}</span>
-          <span><i class="fas fa statistics" aria-hidden="true"></i>${item.statisitics}</span></div>
-        </div>
-      `;
-    });
+    html = `
+            <div class="imageDisplay">
+            <div class="userDetail">
+               <img>
+              <span>${getPostData.username}</span>
+              <span>${getPostData.handle}</span>
+              <span>${getPostData.timestamp}</span>
+    </div>
+    <p class="tweetText">${getPostData.tweetText}</p>
+    <div class="tweetExpressions">  <span><i class="fas fa-message" aria-hidden="true"></i>${getPostData.reply}</span>
+              <span><i class="fas fa-retweet" aria-hidden="true"></i>${getPostData.retweet}</span>
+              <span><i class="fas fa-heart" aria-hidden="true"></i>${getPostData.likesCount}</span>
+              <span><i class="fas fa-stats" aria-hidden="true"></i>${getPostData.statisitics}</span></div>
+              </div>
+              </div>
+              `;
     display.innerHTML = html;
+
+    imageConvertion();
   }
 });
+
+async function imageConvertion() {
+  window.pageYOffset = 0;
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+  // transform to canvas
+  html2canvas(diaplayImage, {
+    allowTaint: true,
+    taintTest: false,
+    type: "view",
+  }).then(function (canvas) {
+    const sreenshot = document.getElementById("showImage");
+    canvas.style.width = "100%";
+    sreenshot.appendChild(canvas);
+    canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+  });
+}

@@ -54,5 +54,10 @@ module.exports = {
       template: path.resolve("./src/popup.html"),
       chunks: ["popup"],
     }),
+    new HtmlPlugin({
+      filename: "dashboard.html",
+      template: path.resolve("./src/dashboard.html"),
+      chunks: ["popup"],
+    }),
   ],
 };
