@@ -26,7 +26,15 @@ let initialInterval = setInterval(() => {
             sndList.appendChild(span);
             sndList.appendChild(btnSend);
             sendButton.appendChild(sndList);
-
+            if (document.getElementsByTagName("body")[0].style.backgroundColor == "rgb(255, 255, 255)") {
+              btnSend.style.color="black"
+              
+            }
+            else if(document.getElementsByTagName("body")[0].style.backgroundColor == "rgb(21, 32, 43)" || document.getElementsByTagName("body")[0].style.backgroundColor == "rgb(0, 0, 0)"){
+              document.querySelector(".btn_unique").style.color ="white"
+              
+            }  
+            
             // Add a click event listener to the custom button
             btnSend.addEventListener("click", () => {
               // Get the data of the Twitter post
@@ -48,28 +56,26 @@ let initialInterval = setInterval(() => {
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;
-              let timestamp = articleT.querySelector(
-                ".css-1dbjc4n.r-18u37iz.r-1q142lx"
-              ).innerText;
+              // let timestamp = articleT.querySelector(
+              //   ".css-1dbjc4n.r-18u37iz.r-1q142lx"
+              // ).innerText;
               let retweet = articleT.querySelector(
                 "div[data-testid='retweet']"
               ).innerText;
               let likesCount = articleT.querySelector(
                 "div[data-testid='like']"
               ).innerText;
-              let statisitics = articleT.querySelector(
-                ".css-901oao.css-16my406.r-poiln3.r-n6v787.r-1cwl3u0.r-1k6nrdp.r-1e081e0.r-qvutc0"
-              ).innerText;
+            
               let tweetData = {
                 avatar: imageUrl,
                 username: username,
                 handle: handle,
                 tweetText: tweetText,
-                timestamp: timestamp,
+                // timestamp: timestamp,
                 reply: reply,
                 retweet: retweet,
                 likesCount: likesCount,
-                statisitics: statisitics,
+               
               };
 
               chrome.runtime.sendMessage({
@@ -79,11 +85,22 @@ let initialInterval = setInterval(() => {
 
               chrome.storage.sync.set({ message: tweetData }, function () {
                 console.log("Message is stored in Chrome storage");
+                document.querySelector(".css-1dbjc4n.r-14lw9ot.r-1q9bdsx.r-1upvrn0.r-j2cz3j.r-1udh08x.r-u8s1d").innerHTML = ``
+               
+                  
+                
               });
             });
+            
+
           }
+    
         }
       }, 0);
     });
   });
 }, 1000);
+
+
+
+ 
