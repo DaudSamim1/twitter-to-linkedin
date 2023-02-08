@@ -1,0 +1,105 @@
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300&family=Nunito:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,200;1,400;1,500;1,600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 700px;
+  height: 580px;
+  background: #1e1e1e;
+  // font-family: "Inter", sans-serif;
+}
+.mainContainer {
+  background: #1e1e1e;
+}
+.ImageCon {
+  background: blue;
+  padding: 25px;
+  width: 609px;
+  margin: 18px auto;
+  border-radius: 20px;
+}
+.textToImage {
+  max-width: 90%;
+  height: 280px;
+  margin: 0 auto;
+  padding: 50px 7px;
+  text-align: start;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    101.55deg,
+    rgba(255, 255, 255, 0.9) 34.75%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  /* Shadow */
+
+  // box-shadow: 10px 10px 25px rgba(96, 96, 96, 0.25);
+  border-radius: 15px;
+}
+.userDetail {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-left: 7px;
+}
+.userName {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.name {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 29.05px;
+}
+.handle {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.78px;
+  color: #b0b0b0;
+}
+.time {
+  padding: 8px 0px 8px 20px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.78px;
+  color: #b0b0b0;
+}
+.tweetText {
+  padding: 4px 11px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23.4px;
+}
+.tweetExpressions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 27px;
+  padding-left: 23px;
+}
+.exp {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14.4px;
+}
+.exp span {
+  color: #b0b0b0;
+}
+.backColorBtn {
+  background-color: rgb(99, 149, 99);
+}
+.showImage {
+  width: 609px;
+  margin: 18px auto;
+}
+.avatar {
+  border-radius: 25px;
+}
