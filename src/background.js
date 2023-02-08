@@ -3,9 +3,6 @@ console.log("background");
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.message == "postData") {
-    // chrome.tabs.create({ url: "./dashboard.html" }, function (tab) {
-
-    // });
     chrome.runtime.sendMessage(request.data);
   }
 });
@@ -50,3 +47,10 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     }
   }
 });
+
+// chrome.windows.create({
+//   url: chrome.runtime.getURL("popup.html"),
+//   type: "popup"
+// })
+
+// chrome.tabs.create({ url: "popup.html" })

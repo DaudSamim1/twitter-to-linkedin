@@ -1,6 +1,5 @@
-import "./assets/styles/style.css";
+import "./assets/styles/customButtonstyle.scss";
 let sendButton;
-
 // Initialize an interval to check for the menu button every second
 let initialInterval = setInterval(() => {
   document.querySelectorAll(".r-1joea0r").forEach((item) => {
@@ -61,7 +60,6 @@ let initialInterval = setInterval(() => {
               let statisitics = articleT.querySelector(
                 ".css-901oao.css-16my406.r-poiln3.r-n6v787.r-1cwl3u0.r-1k6nrdp.r-1e081e0.r-qvutc0"
               ).innerText;
-              // sendButton.addEventListener("click", () => {
               let tweetData = {
                 avatar: imageUrl,
                 username: username,
@@ -73,16 +71,19 @@ let initialInterval = setInterval(() => {
                 likesCount: likesCount,
                 statisitics: statisitics,
               };
-              console.log(tweetData);
 
               chrome.runtime.sendMessage({
                 message: "postData",
-                data: tweetData,
+                // data: tweetData,
+              });
+
+              chrome.storage.sync.set({ message: tweetData }, function () {
+                console.log("Message is stored in Chrome storage");
               });
             });
           }
         }
-      }, 2000);
+      }, 0);
     });
   });
 }, 1000);

@@ -10,6 +10,7 @@ module.exports = {
     content: "./src/content.js",
     background: "./src/background.js",
     popup: "./src/popup.js",
+    dashboard: "./src/dashboard.js",
   },
   output: {
     path: path.resolve(__dirname, "build"),
@@ -41,7 +42,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "src/assets/styles/style.css",
+          from: "src/assets/styles/customButtonstyle.scss",
           to: "assets/styles",
         },
         {
@@ -57,7 +58,7 @@ module.exports = {
     new HtmlPlugin({
       filename: "dashboard.html",
       template: path.resolve("./src/dashboard.html"),
-      chunks: ["popup"],
+      chunks: ["dashboard"],
     }),
   ],
 };
