@@ -47,12 +47,12 @@ let initialInterval = setInterval(() => {
               let tweetText = articleT.querySelector(
                 "div[data-testid='tweetText']"
               ).innerText;
-              let username = articleT.querySelector(
-                ".css-901oao.r-1awozwy.r-18jsvk2.r-6koalj.r-37j5jr.r-a023e6.r-b88u0q.r-rjixqe.r-bcqeeo.r-1udh08x.r-3s2u2q.r-qvutc0"
-              ).innerText;
-              let handle = articleT.querySelector(
-                ".css-901oao.css-1hf3ou5.r-14j79pv.r-18u37iz.r-37j5jr.r-1wvb978.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0"
-              ).innerText;
+              // let username = articleT.querySelector(
+              //   ".css-901oao.r-1awozwy.r-18jsvk2.r-6koalj.r-37j5jr.r-a023e6.r-b88u0q.r-rjixqe.r-bcqeeo.r-1udh08x.r-3s2u2q.r-qvutc0"
+              // ).innerText;
+              // let handle = articleT.querySelector(
+              //   ".css-901oao.css-1hf3ou5.r-14j79pv.r-18u37iz.r-37j5jr.r-1wvb978.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0"
+              // ).innerText;
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;
@@ -68,8 +68,8 @@ let initialInterval = setInterval(() => {
             
               let tweetData = {
                 avatar: imageUrl,
-                username: username,
-                handle: handle,
+                // username: username,
+                // handle: handle,
                 tweetText: tweetText,
                 // timestamp: timestamp,
                 reply: reply,
@@ -85,14 +85,11 @@ let initialInterval = setInterval(() => {
 
               chrome.storage.sync.set({ message: tweetData }, function () {
                 console.log("Message is stored in Chrome storage");
-                document.querySelector(".css-1dbjc4n.r-14lw9ot.r-1q9bdsx.r-1upvrn0.r-j2cz3j.r-1udh08x.r-u8s1d").innerHTML = ``
-               
+                  document.querySelector('[role="menu"]').innerHTML=``      
                   
-                
+                 
               });
             });
-            
-
           }
     
         }
