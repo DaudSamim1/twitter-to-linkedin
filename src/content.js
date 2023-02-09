@@ -65,8 +65,14 @@ let initialInterval = setInterval(() => {
               } catch (error) {
                 tweetText = null;
               }
-              let username = separatedStrings[0];
-              let handle = separatedStrings[1];
+              let username = articleT.querySelector(
+                "div[data-testid='User-Names']"
+              ).children[0].innerText;
+              console.log(username, "username");
+              let handle = articleT.querySelector(
+                "div[data-testid='User-Names']"
+              ).children[1].children[0].children[0].innerText;
+
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;

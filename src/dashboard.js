@@ -58,20 +58,8 @@ cardCode.addEventListener("click", function () {
   }
 });
 // Toggle experssion
-let toogleExp = document.querySelector("#response");
-function toggleContainer() {
-  let tweetExpressions = document.querySelector("#tweetExpressions");
 
-  toogleExp.addEventListener("click", function () {
-    if (tweetExpressions.style.display === "flex") {
-      tweetExpressions.style.display = "none";
-    } else {
-      tweetExpressions.style.display = "flex";
-    }
-  });
-}
-
-toogleExp.addEventListener("click", toggleContainer);
+// toogleExp.addEventListener("click", toggleContainer);
 
 chrome.storage.sync.get(["message"], function (result) {
   data = result.message;
@@ -101,7 +89,7 @@ chrome.storage.sync.get(["message"], function (result) {
       </div>
       <p class="tweetText">${data.tweetText ? `${data.tweetText}` : ``}</p>
       <h5 class="time">${data.timestamp}</h5>
-      <div id="tweetExpressions" class="tweetExpressions" ">
+      <div id="tweetExpressions" class="tweetExpressions" style="display:flex">
         <h3 class="exp"
           >${data.reply}<span>reply</span></h3
         >
@@ -116,7 +104,16 @@ chrome.storage.sync.get(["message"], function (result) {
     </div>
                     `;
   display.innerHTML = html;
-  imageConvertion();
+  document.querySelector("#response").addEventListener("click", function () {
+    let tweetExpressions = document.querySelector(".tweetExpressions");
+    console.log("work");
+    if (tweetExpressions.style.display != "flex") {
+      tweetExpressions.style.display = "flex";
+    } else {
+      tweetExpressions.style.display = "none";
+    }
+  });
+  //   imageConvertion();
   //   });
   async function imageConvertion() {
     window.pageYOffset = 0;
@@ -148,6 +145,6 @@ dashLogin.addEventListener("click", () => {
 let dashSignup = document.getElementById("dashboardsignup");
 
 dashSignup.addEventListener("click", () => {
-  localStorage.setItem("signup",true)
+  localStorage.setItem("signup", true);
   window.location.href = chrome.runtime.getURL("popup.html");
 });
