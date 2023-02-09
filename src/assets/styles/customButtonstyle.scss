@@ -7,8 +7,8 @@
 }
 
 .mainContainer {
-  width: 700px;
-  height: 580px;
+  width: 400px;
+  height: 540px;
   background: #1a1d25;
   padding-top: 40px;
 
@@ -27,21 +27,25 @@
       align-items: center;
       gap: 10px;
     }
+    .leftSide a{
+      text-decoration: none;
+    }
 
     .leftArrow {
       background: #4486e9;
-      border-radius: 10px;
+      border-radius: 8px;
       color: #fff;
       padding: 10px;
     }
 
-    .signUplink a {
+    .signUplink  {
       font-style: normal;
       font-weight: 700;
       font-size: 15px;
       line-height: 29px;
       text-decoration: none;
       color: #fff;
+      margin-left: 5px;
     }
 
     .rightSide {
@@ -162,6 +166,9 @@
     }
     }
   }
+  #logout-btn{
+    display: none;
+  }
 }
 
 // linkdin button styling
@@ -176,7 +183,7 @@
   padding-top: 6px;
   padding-bottom: 14px;
   font-family: sans-serif;
-  color: rgb(15, 20, 25) !important;
+  color: rgb(15, 20, 25);
   cursor: pointer;
   margin-right: 14px;
 }

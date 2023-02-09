@@ -159,6 +159,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   border-radius: 25px;
 }
 .effectsContainer {
+  position: relative;
   border: 1px solid blue;
   display: flex;
   align-items: center;
@@ -199,13 +200,12 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   color: white;
   background-color: transparent;
   border: none;
-  position: relative;
 }
 .colors,
 .response,
 .mode,
 .share span {
-  font-size: 10px;
+  font-size: 12px;
 }
 .share {
   background-color: blue;
@@ -215,8 +215,8 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 #colorContainer {
   gap: 15px;
   position: absolute;
-  bottom: 167px;
-  left: 179px;
+  bottom: 73px;
+  left: 5px;
   border: 1px solid blue;
   border-radius: 4px;
   padding: 13px 20px;
