@@ -2,7 +2,14 @@ import "./assets/styles/customButtonstyle.scss";
 
 let loginBtn = document.getElementById("login-btn");
 let logoutBtn = document.getElementById("logout-btn");
-
+let signup = localStorage.getItem("signup")
+if(signup){
+  console.log('here')
+  localStorage.removeItem("signup")
+}
+else{
+  window.location.href = "dashboard.html";
+}
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.message === "postData") {
     window.location.href = "dashboard.html";
@@ -42,8 +49,8 @@ logoutBtn.addEventListener("click", () => {
   });
 });
 
-let NextBtn=document.getElementById("nextBtn")
+let NextBtn = document.getElementById("nextBtn");
 
-NextBtn.addEventListener("click" ,() =>{
-  window.location.href=chrome.runtime.getURL("signuppassword.html");
-})
+NextBtn.addEventListener("click", () => {
+  window.location.href = chrome.runtime.getURL("signuppassword.html");
+});

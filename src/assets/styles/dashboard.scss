@@ -7,19 +7,28 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   width: 700px;
   height: 580px;
   background: #1e1e1e;
   // font-family: "Inter", sans-serif;
 }
+
+$colors: linear-gradient(to right, #f44336, #e91e63),
+  linear-gradient(to right, #e91e63, #9c27b0),
+  linear-gradient(to right, #9c27b0, #2196f3),
+  linear-gradient(to right, #2196f3, #4caf50),
+  linear-gradient(to right, #4caf50, #ff5722),
+  linear-gradient(to right, #ff5722, #f44336);
 .mainContainer {
   background: #1e1e1e;
 }
 .topBar {
   display: flex;
   justify-content: space-between;
-  padding: 0 66px;
+  align-items: center;
+  padding: 0 20px;
   margin-top: 21px;
 }
 .loginBtn,
@@ -27,13 +36,19 @@ body {
 .UpgradeBtn {
   text-decoration: transparent;
   color: white;
-  padding: 9px 19px;
+  padding: 4px 19px;
   background: #4486e9;
   border-radius: 10px;
   border: none;
+  width: 112px;
+  height: 48px;
+  margin-right: 6px;
+  font-weight: 600;
+  font-size: 15px;
   &:hover {
     background-color: transparent;
     border: 1px solid #4486e9;
+    color: #4486E9;
   }
 }
 .title {
@@ -41,6 +56,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: lowercase;
+  font-size: 19px;
+  font-weight: 600;
 }
 .UpgradePlan {
   display: flex;
@@ -54,6 +71,10 @@ body {
 }
 .CP {
   color: white;
+  font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
 }
 .waterMark {
   float: right;
@@ -81,7 +102,7 @@ body {
   text-align: start;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   background: linear-gradient(
     101.55deg,
     rgba(255, 255, 255, 0.9) 34.75%,
@@ -157,7 +178,8 @@ body {
   justify-content: space-around;
   width: 50%;
   margin: auto;
-  padding: 20px;
+  padding: 7px 20px;
+  margin-top: 56px;
 
   background: linear-gradient(
     91.95deg,
@@ -173,6 +195,12 @@ body {
   width: 20px;
   color: white;
 }
+
+.effectsContainer button:active {
+  background-color: #18264e;
+  padding: 10px;
+  border-radius: 7px;
+}
 .colors,
 .response,
 .mode,
@@ -182,4 +210,43 @@ body {
   align-items: center;
   gap: 9px;
   color: white;
+  background-color: transparent;
+  border: none;
+  position: relative;
+}
+.colors,
+.response,
+.mode,
+.share span {
+  font-size: 10px;
+}
+.share {
+  background-color: blue;
+  padding: 10px;
+  border-radius: 7px;
+}
+#colorContainer {
+  gap: 15px;
+  position: absolute;
+  bottom: 167px;
+  left: 179px;
+  border: 1px solid blue;
+  border-radius: 4px;
+  padding: 13px 20px;
+  background: linear-gradient(
+    91.95deg,
+    #0f1c3f 0%,
+    rgba(15, 28, 63, 0.35) 100%
+  );
+}
+
+#color1,
+#color2,
+#color3,
+#color4,
+#color5,
+#color6 {
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
 }
