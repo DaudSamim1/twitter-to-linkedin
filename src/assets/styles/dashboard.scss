@@ -48,7 +48,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   &:hover {
     background-color: transparent;
     border: 1px solid #4486e9;
-    color: #4486E9;
+    color: #4486e9;
   }
 }
 .title {
@@ -72,9 +72,9 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .CP {
   color: white;
   font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
 }
 .waterMark {
   float: right;
@@ -148,7 +148,6 @@ line-height: 22px;
   line-height: 23.4px;
 }
 .tweetExpressions {
-  display: flex;
   justify-content: flex-start;
   gap: 27px;
   padding-left: 23px;
@@ -214,13 +213,11 @@ line-height: 22px;
   background-color: transparent;
   border: none;
   position: relative;
-
 }
 .colors,
 .response,
 .mode,
 .share span {
-
   font-size: 12px;
 }
 .share {
