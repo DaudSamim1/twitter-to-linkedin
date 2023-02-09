@@ -5,9 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  background-color: #1a1d25;
-}
+
 
 .mainContainer {
   width: 400px;
@@ -138,16 +136,17 @@ body{
           display: none;
         }
 
-        label[for="checkbox"] {
+        label[for="checkbox"]  {
           width: 20px;
           height: 18px;
           border: 1px solid #4486e9;
           display: inline-block;
           border-radius: 4px;
-        }
+          text-decoration: line-through;
 
+        }
         input[type="checkbox"]:checked + label[for="checkbox"] {
-          background-color: black;
+            text-decoration: line-through;   
         }
         span {
           font-style: normal;
