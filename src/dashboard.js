@@ -4,24 +4,89 @@ let display = document.getElementById("textToImage");
 let displayImage = document.getElementById("ImageCon");
 let data;
 
+// background color change
+let backgroundChangeBtn = document.querySelector("#colors");
+let colorContainer = document.querySelector("#colorContainer");
+let color1 = document.querySelector("#color1");
+let color2 = document.querySelector("#color2");
+let color3 = document.querySelector("#color3");
+let color4 = document.querySelector("#color4");
+let color5 = document.querySelector("#color5");
+let color6 = document.querySelector("#color6");
+let allButtonToChangeColor = colorContainer.querySelectorAll("button");
+let colors = [
+  "linear-gradient(104.34deg,  #FFDEDE 0%, #FFF8DE 33.33%,#E9FFDE 66.67%,#59DFBF 100%)",
+  "linear-gradient(104.34deg,#6E72D7 0%,#6E72D7 0%, #6E72D7 0%, #000467 66.67%,#000231 100%)",
+  "linear-gradient(104.34deg, #9DFF6F 0%, #004624 100%)",
+  "linear-gradient(104.34deg, #FFEE7D 0%, #B767FF 33.33%, #B7AFFF 66.67%, #44FADD 100%)",
+  "linear-gradient(104.34deg, #FFDEFC 0%, #FD79D8 50%, #FF006B 100%)",
+  "linear-gradient(101.55deg, rgba(255, 255, 255, 0.9) 34.75%, rgba(255, 255, 255, 0.3) 100%)",
+];
+color1.style.background = colors[0];
+color2.style.background = colors[1];
+color3.style.background = colors[2];
+color4.style.background = colors[3];
+color5.style.background = colors[4];
+color6.style.background = colors[5];
+
+allButtonToChangeColor.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    displayImage.style.background = colors[index];
+  });
+});
+
+// buttons for changing background color
+backgroundChangeBtn.addEventListener("click", function () {
+  if (colorContainer.style.display === "none") {
+    colorContainer.style.display = "flex";
+  } else {
+    colorContainer.style.display = "none";
+  }
+});
+
+// dark and light mode
+let cardCode = document.querySelector("#mode");
+let currentCardColor = display.style.backgroundColor;
+
+cardCode.addEventListener("click", function () {
+  if (currentCardColor === "white") {
+    display.style.backgroundColor = "black";
+    currentCardColor = "black";
+  } else {
+    display.style.backgroundColor = "white";
+    currentCardColor = "white";
+  }
+});
+// Toggle experssion
+let toogleExp = document.querySelector("#response");
+function toggleContainer() {
+  let tweetExpressions = document.querySelector("#tweetExpressions");
+
+  toogleExp.addEventListener("click", function () {
+    if (tweetExpressions.style.display === "flex") {
+      tweetExpressions.style.display = "none";
+    } else {
+      tweetExpressions.style.display = "flex";
+    }
+  });
+}
+
+toogleExp.addEventListener("click", toggleContainer);
+
 chrome.storage.sync.get(["message"], function (result) {
-  //   let array = [];
-  //   array.push(result.message);
-  //   console.log(array);
-  //   console.log(array.username);
+  data = result.message;
+
   console.log(result);
-      data = result.message;
-      console.log(data,"datahere")
-;
+  data = result.message;
+  console.log(data, "datahere");
 
-
-  chrome.storage.local.set({
-    data: result.message,
-  });
-  chrome.storage.local.get((getData) => {
-    console.log("Full Local Storage -> ", getData);
-    console.log(getData.data.username);
-  });
+  //   chrome.storage.local.set({
+  //     data: result.message,
+  //   });
+  //   chrome.storage.local.get((getData) => {
+  //     console.log("Full Local Storage -> ", getData);
+  //     console.log(getData.data.username);
+  //   });
   // set the message to the popup
   let html = "";
   //   array.map((item, index) => {
@@ -34,9 +99,9 @@ chrome.storage.sync.get(["message"], function (result) {
           <h5 class="handle">${data.handle}</h5>
         </div>
       </div>
-      <p class="tweetText">${data.tweetText}</p>
+      <p class="tweetText">${data.tweetText ? `${data.tweetText}` : ``}</p>
       <h5 class="time">${data.timestamp}</h5>
-      <div class="tweetExpressions">
+      <div id="tweetExpressions" class="tweetExpressions" ">
         <h3 class="exp"
           >${data.reply}<span>reply</span></h3
         >
@@ -72,4 +137,17 @@ chrome.storage.sync.get(["message"], function (result) {
         .replace("image/jpeg", "image/octet-stream");
     });
   }
+});
+
+let dashLogin = document.getElementById("dashboardLogin");
+
+dashLogin.addEventListener("click", () => {
+  window.location.href = chrome.runtime.getURL("login.html");
+});
+
+let dashSignup = document.getElementById("dashboardsignup");
+
+dashSignup.addEventListener("click", () => {
+  localStorage.setItem("signup",true)
+  window.location.href = chrome.runtime.getURL("popup.html");
 });

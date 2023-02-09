@@ -42,7 +42,11 @@ let NextBtn=document.getElementById("nextBtn")
 
 NextBtn.addEventListener("click" ,() =>{
 
+
   window.location.href=chrome.runtime.getURL("login.html");
-  // var newURL = "./signuppassword.html";
-  //       chrome.tabs.create({ url: newURL });
+ 
+})
+document.getElementById("backtosignup").addEventListener("click" ,() =>{
+  localStorage.setItem("signup",true)
+  window.location.href="popup.html"
 })

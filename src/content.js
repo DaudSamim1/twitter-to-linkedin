@@ -7,7 +7,7 @@ let initialInterval = setInterval(() => {
       setTimeout(() => {
         if (document.querySelector("[data-testid='Dropdown']")) {
           let parentDiv = document.querySelector("[data-testid='Dropdown']");
-          
+
           let child = parentDiv.querySelector(".btn_unique");
           if (!child) {
             sendButton = document.querySelector("[data-testid='Dropdown']");
@@ -37,6 +37,14 @@ let initialInterval = setInterval(() => {
             
             // Add a click event listener to the custom button
             btnSend.addEventListener("click", () => {
+              let array = [];
+
+              var parentDiv = document.querySelector(
+                "div[data-testid='User-Names']"
+              ).innerText;
+              array.push(parentDiv);
+              let separatedStrings = array[0].split("\n");
+
               // Get the data of the Twitter post
               let articleT = item.closest(
                 "article[data-testid='tweet']"
@@ -46,19 +54,18 @@ let initialInterval = setInterval(() => {
               let imageUrl = avatar.src;
               let tweetText = articleT.querySelector(
                 "div[data-testid='tweetText']"
-              ).innerText;
-              // let username = articleT.querySelector(
-              //   ".css-901oao.r-1awozwy.r-18jsvk2.r-6koalj.r-37j5jr.r-a023e6.r-b88u0q.r-rjixqe.r-bcqeeo.r-1udh08x.r-3s2u2q.r-qvutc0"
-              // ).innerText;
-              // let handle = articleT.querySelector(
-              //   ".css-901oao.css-1hf3ou5.r-14j79pv.r-18u37iz.r-37j5jr.r-1wvb978.r-a023e6.r-16dba41.r-rjixqe.r-bcqeeo.r-qvutc0"
-              // ).innerText;
+              );
+              try {
+                tweetText = tweetText.innerText;
+              } catch (error) {
+                tweetText = null;
+              }
+              let username = separatedStrings[0];
+              let handle = separatedStrings[1];
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;
-              // let timestamp = articleT.querySelector(
-              //   ".css-1dbjc4n.r-18u37iz.r-1q142lx"
-              // ).innerText;
+              let timestamp = separatedStrings[3];
               let retweet = articleT.querySelector(
                 "div[data-testid='retweet']"
               ).innerText;
@@ -75,7 +82,6 @@ let initialInterval = setInterval(() => {
                 reply: reply,
                 retweet: retweet,
                 likesCount: likesCount,
-
               };
 
               chrome.runtime.sendMessage({
