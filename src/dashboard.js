@@ -138,3 +138,16 @@ chrome.storage.sync.get(["message"], function (result) {
     });
   }
 });
+
+let dashLogin = document.getElementById("dashboardLogin");
+
+dashLogin.addEventListener("click", () => {
+  window.location.href = chrome.runtime.getURL("login.html");
+});
+
+let dashSignup = document.getElementById("dashboardsignup");
+
+dashSignup.addEventListener("click", () => {
+  localStorage.setItem("signup",true)
+  window.location.href = chrome.runtime.getURL("popup.html");
+});

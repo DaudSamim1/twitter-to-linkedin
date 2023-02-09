@@ -70,6 +70,7 @@ let initialInterval = setInterval(() => {
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;
+
               if (reply == null || reply == ``) {
                 reply = "0";
               }

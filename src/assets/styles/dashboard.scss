@@ -27,7 +27,8 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .topBar {
   display: flex;
   justify-content: space-between;
-  padding: 0 66px;
+  align-items: center;
+  padding: 0 20px;
   margin-top: 21px;
 }
 .loginBtn,
@@ -35,13 +36,19 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .UpgradeBtn {
   text-decoration: transparent;
   color: white;
-  padding: 9px 19px;
+  padding: 4px 19px;
   background: #4486e9;
   border-radius: 10px;
   border: none;
+  width: 112px;
+  height: 48px;
+  margin-right: 6px;
+  font-weight: 600;
+  font-size: 15px;
   &:hover {
     background-color: transparent;
     border: 1px solid #4486e9;
+    color: #4486E9;
   }
 }
 .title {
@@ -49,6 +56,8 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: lowercase;
+  font-size: 19px;
+  font-weight: 600;
 }
 .UpgradePlan {
   display: flex;
@@ -62,6 +71,10 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 }
 .CP {
   color: white;
+  font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
 }
 .waterMark {
   float: right;
@@ -200,11 +213,14 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   color: white;
   background-color: transparent;
   border: none;
+  position: relative;
+
 }
 .colors,
 .response,
 .mode,
 .share span {
+
   font-size: 12px;
 }
 .share {
@@ -215,8 +231,10 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 #colorContainer {
   gap: 15px;
   position: absolute;
+
   bottom: 73px;
   left: 5px;
+
   border: 1px solid blue;
   border-radius: 4px;
   padding: 13px 20px;
