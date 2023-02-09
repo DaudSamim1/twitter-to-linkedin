@@ -25,20 +25,32 @@
       </div>
 
       <div class="effectsContainer">
-        <div class="colors">
-          <img src="./assets/images/palette_full.png" alt="" />
+        <!-- <button id="toggleButton">Toggle Container</button>
+        <div id="container" style="display: none">
+          <p>This is the content of the container.</p>
+        </div> -->
+        <button class="colors" id="colors" active>
+          <i class="fas fa-swatchbook"></i>
           <span>Color</span>
+        </button>
+        <div id="colorContainer" style="display: none">
+          <button id="color1"></button>
+          <button id="color2"></button>
+          <button id="color3"></button>
+          <button id="color4"></button>
+          <button id="color5"></button>
+          <button id="color6"></button>
         </div>
-        <div class="mode">
-          <img src="./assets/images/moon_full.png" alt="" /><span>Mode</span>
-        </div>
-        <div class="response">
-          <img src="./assets/images/arrows.png" alt="" /><span>Response</span>
-        </div>
+        <button id="mode" class="mode">
+          <i class="fad fa-moon"></i><span>Mode</span>
+        </button>
+        <button id="response" class="response">
+          <i class="fas fa-exchange-alt"></i><span>Response</span>
+        </button>
 
-        <div class="share">
-          <img src="./assets/images/share_full.png" alt="" /> <span>Share</span>
-        </div>
+        <button class="share">
+          <i class="fas fa-upload"></i> <span>Share</span>
+        </button>
       </div>
       <div class="showImage" id="showImage"></div>
     </div>

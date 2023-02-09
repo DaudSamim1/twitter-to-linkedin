@@ -1,0 +1,47 @@
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 400px;
+  height: 400px;
+}
+.mainContainer {
+  width: 326px;
+  height: 89%;
+  text-align: center;
+  background: antiquewhite;
+  margin: auto;
+  margin-top: 20px;
+}
+.textToImage {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 50px 7px;
+  text-align: start;
+  // background-color: #4ac9c1;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userDetail {
+  display: flex;
+  gap: 7px;
+}
+.tweetText {
+  padding: 4px 11px;
+}
+.tweetExpressions {
+  display: flex;
+  justify-content: space-evenly;
+}
+.backColorBtn {
+  background-color: rgb(99, 149, 99);
+}
+.showImage {
+  margin-top: 20px;
+}
