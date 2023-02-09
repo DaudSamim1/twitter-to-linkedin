@@ -116,7 +116,7 @@ chrome.storage.sync.get(["message"], function (result) {
     </div>
                     `;
   display.innerHTML = html;
-  imageConvertion();
+  //   imageConvertion();
   //   });
   async function imageConvertion() {
     window.pageYOffset = 0;
@@ -148,6 +148,6 @@ dashLogin.addEventListener("click", () => {
 let dashSignup = document.getElementById("dashboardsignup");
 
 dashSignup.addEventListener("click", () => {
-  localStorage.setItem("signup",true)
+  localStorage.setItem("signup", true);
   window.location.href = chrome.runtime.getURL("popup.html");
 });
