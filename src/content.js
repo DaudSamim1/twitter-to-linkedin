@@ -26,15 +26,20 @@ let initialInterval = setInterval(() => {
             sndList.appendChild(span);
             sndList.appendChild(btnSend);
             sendButton.appendChild(sndList);
-            if (document.getElementsByTagName("body")[0].style.backgroundColor == "rgb(255, 255, 255)") {
-              btnSend.style.color="black"
-              
+            if (
+              document.getElementsByTagName("body")[0].style.backgroundColor ==
+              "rgb(255, 255, 255)"
+            ) {
+              btnSend.style.color = "black";
+            } else if (
+              document.getElementsByTagName("body")[0].style.backgroundColor ==
+                "rgb(21, 32, 43)" ||
+              document.getElementsByTagName("body")[0].style.backgroundColor ==
+                "rgb(0, 0, 0)"
+            ) {
+              document.querySelector(".btn_unique").style.color = "white";
             }
-            else if(document.getElementsByTagName("body")[0].style.backgroundColor == "rgb(21, 32, 43)" || document.getElementsByTagName("body")[0].style.backgroundColor == "rgb(0, 0, 0)"){
-              document.querySelector(".btn_unique").style.color ="white"
-              
-            }  
-            
+
             // Add a click event listener to the custom button
             btnSend.addEventListener("click", () => {
               let array = [];
@@ -65,20 +70,62 @@ let initialInterval = setInterval(() => {
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;
-              let timestamp = separatedStrings[3];
+
+              if (reply == null || reply == ``) {
+                reply = "0";
+              }
+              console.log(reply);
+              let timeElement = articleT.querySelector("time");
+              let timestamp = timeElement.getAttribute("datetime");
+              console.log(timestamp);
+
+              const date = new Date(timestamp);
+
+              const months = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ];
+              const month = months[date.getMonth()];
+              // const month = date.getMonth() + 1; // JavaScript's months are 0-indexed
+              const day = date.getDate();
+              const timeString = date.toLocaleTimeString("en-US", {
+                hour: "numeric",
+                minute: "numeric",
+                hour12: true,
+              });
+              const dateTimeString = ` ${timeString} . ${month} ${day} `;
+              // console.log(dateTimeString);
+
               let retweet = articleT.querySelector(
                 "div[data-testid='retweet']"
               ).innerText;
+              if (retweet == null || retweet == ``) {
+                retweet = "0";
+              }
+              console.log(retweet);
               let likesCount = articleT.querySelector(
                 "div[data-testid='like']"
               ).innerText;
-
+              if (likesCount == null || likesCount == ``) {
+                likesCount = "0";
+              }
+              console.log(likesCount);
               let tweetData = {
                 avatar: imageUrl,
-                // username: username,
-                // handle: handle,
+                username: username,
+                handle: handle,
                 tweetText: tweetText,
-                // timestamp: timestamp,
+                timestamp: dateTimeString,
                 reply: reply,
                 retweet: retweet,
                 likesCount: likesCount,
@@ -91,19 +138,12 @@ let initialInterval = setInterval(() => {
 
               chrome.storage.sync.set({ message: tweetData }, function () {
                 console.log("Message is stored in Chrome storage");
-                  document.querySelector('[role="menu"]').innerHTML=``      
-                  
-                 
+                document.querySelector('[role="menu"]').innerHTML = ``;
               });
             });
           }
-    
         }
       }, 0);
     });
   });
 }, 1000);
-
-
-
- 

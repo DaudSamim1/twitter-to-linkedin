@@ -2,6 +2,9 @@ import "./assets/styles/customButtonstyle.scss";
 
 let loginBtn = document.getElementById("login-btn");
 let logoutBtn = document.getElementById("logout-btn");
+
+window.location.href = "dashboard.html";
+
 let signup = localStorage.getItem("signup")
 if(signup){
   console.log('here')
@@ -10,6 +13,7 @@ if(signup){
 else{
   window.location.href = "dashboard.html";
 }
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.message === "postData") {
     window.location.href = "dashboard.html";
