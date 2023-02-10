@@ -43,6 +43,6 @@ let NextBtn=document.getElementById("nextBtn")
 NextBtn.addEventListener("click" ,() =>{
 
   window.location.href=chrome.runtime.getURL("login.html");
-  // var newURL = "./signuppassword.html";
-  //       chrome.tabs.create({ url: newURL });
+ 
 })
+

@@ -57,3 +57,5 @@ let NextBtn = document.getElementById("nextBtn");
 NextBtn.addEventListener("click", () => {
   window.location.href = chrome.runtime.getURL("signuppassword.html");
 });
+
+
