@@ -9,7 +9,7 @@
 }
 
 body {
-  width: 780px;
+  width: 540px;
   height: 578px;
   background: #1e1e1e;
   // font-family: "Inter", sans-serif;
@@ -82,7 +82,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 }
 .ImageCon {
   padding: 25px;
-  width: 550px;
+  width: 425px;
   margin: 8px auto 18px;
 
   background: linear-gradient(
@@ -170,7 +170,9 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   margin: 18px auto;
 }
 .avatar {
-  border-radius: 25px;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
 }
 .effectsContainer {
   position: relative;
@@ -178,7 +180,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 365px;
+  width: 270px;
   height: 70px;
   margin: auto;
   padding: 7px 20px;
