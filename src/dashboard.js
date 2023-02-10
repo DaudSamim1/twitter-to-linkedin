@@ -1,12 +1,14 @@
 import "./assets/styles/dashboard.scss";
 import html2canvas from "html2canvas";
-let display = document.getElementById("textToImage");
+let display = document.querySelector("#textToImage");
 let displayImage = document.getElementById("ImageCon");
 let data;
 
 // background color change
 let backgroundChangeBtn = document.querySelector("#colors");
 let colorContainer = document.querySelector("#colorContainer");
+
+let iconColor = document.getElementById("colorIcon");
 let color1 = document.querySelector("#color1");
 let color2 = document.querySelector("#color2");
 let color3 = document.querySelector("#color3");
@@ -32,6 +34,8 @@ color6.style.background = colors[5];
 allButtonToChangeColor.forEach((button, index) => {
   button.addEventListener("click", () => {
     displayImage.style.background = colors[index];
+    // console.log((iconColor.style.color = colors[index]));
+    iconColor.style.color = colors[index];
   });
 });
 
@@ -46,20 +50,23 @@ backgroundChangeBtn.addEventListener("click", function () {
 
 // dark and light mode
 let cardCode = document.querySelector("#mode");
-let currentCardColor = display.style.backgroundColor;
-
+let currentCardColor =
+  " linear-gradient(101.55deg, rgba(255, 255, 255, 0.9) 34.75%, rgba(255, 255, 255, 0.3) 100%); ";
+console.log(currentCardColor);
 cardCode.addEventListener("click", function () {
-  if (currentCardColor === "white") {
-    display.style.backgroundColor = "black";
-    currentCardColor = "black";
+  if (currentCardColor) {
+    console.log('hit')
+    display.style.background =
+      `linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)`;
+    currentCardColor =
+      " linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)";
+    display.style.color = "white";
   } else {
-    display.style.backgroundColor = "white";
-    currentCardColor = "white";
+    display.style.backgroundColor = currentCardColor;
+    currentCardColor = currentCardColor;
+    display.style.color = "black";
   }
 });
-// Toggle experssion
-
-// toogleExp.addEventListener("click", toggleContainer);
 
 chrome.storage.sync.get(["message"], function (result) {
   data = result.message;
@@ -68,13 +75,6 @@ chrome.storage.sync.get(["message"], function (result) {
   data = result.message;
   console.log(data, "datahere");
 
-  //   chrome.storage.local.set({
-  //     data: result.message,
-  //   });
-  //   chrome.storage.local.get((getData) => {
-  //     console.log("Full Local Storage -> ", getData);
-  //     console.log(getData.data.username);
-  //   });
   // set the message to the popup
   let html = "";
   //   array.map((item, index) => {
@@ -87,7 +87,8 @@ chrome.storage.sync.get(["message"], function (result) {
           <h5 class="handle">${data.handle}</h5>
         </div>
       </div>
-      <p class="tweetText">${data.tweetText ? `${data.tweetText}` : ``}</p>
+      <p class="tweetText">${data.tweetText ? `${data.tweetText}` : ``}
+</p>
       <h5 class="time">${data.timestamp}</h5>
       <div id="tweetExpressions" class="tweetExpressions" style="display:flex">
         <h3 class="exp"

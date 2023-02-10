@@ -9,8 +9,8 @@
 }
 
 body {
-  width: 700px;
-  height: 580px;
+  width: 780px;
+  height: 578px;
   background: #1e1e1e;
   // font-family: "Inter", sans-serif;
 }
@@ -40,8 +40,8 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   background: #4486e9;
   border-radius: 10px;
   border: none;
-  width: 112px;
-  height: 48px;
+  width: 102px;
+  height: 42px;
   margin-right: 6px;
   font-weight: 600;
   font-size: 15px;
@@ -62,7 +62,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .UpgradePlan {
   display: flex;
   justify-content: space-between;
-  padding: 29px 87px 0 87px;
+  padding: 29px 124px 0;
   align-items: flex-end;
 }
 
@@ -73,7 +73,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   color: white;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 22px;
 }
 .waterMark {
@@ -83,7 +83,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .ImageCon {
   padding: 25px;
   width: 550px;
-  margin: 18px auto;
+  margin: 8px auto 18px;
 
   background: linear-gradient(
     104.34deg,
@@ -96,7 +96,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   border-radius: 15px;
 }
 .textToImage {
-  max-width: 94%;
+  max-width: 97%;
   margin: 0 auto;
   padding: 25px 7px;
   text-align: start;
@@ -159,6 +159,8 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 }
 .exp span {
   color: #b0b0b0;
+  margin-left: 4px;
+  font-size: 12px;
 }
 .backColorBtn {
   background-color: rgb(99, 149, 99);
@@ -172,39 +174,36 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 }
 .effectsContainer {
   position: relative;
-  border: 1px solid blue;
+  border: 0.5px solid #6279b4;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 50%;
+  width: 365px;
+  height: 70px;
   margin: auto;
   padding: 7px 20px;
-  margin-top: 56px;
+  margin-top: 35px;
 
-  background: linear-gradient(
-    91.95deg,
-    #0f1c3f 0%,
-    rgba(15, 28, 63, 0.35) 100%
-  );
+  background: #0f1c3f;
 
   // box-shadow: 10px 10px 20px rgba(17, 17, 17, 0.25);
-  border-radius: 15px;
+  border-radius: 7px;
 }
 .effectsContainer img {
   height: 20px;
   width: 20px;
   color: white;
 }
-
-.effectsContainer button:active {
-  background-color: #18264e;
-  padding: 10px;
-  border-radius: 7px;
+#colorIcon {
+  color: linear-gradient(
+    101.55deg,
+    rgba(255, 255, 255, 0.9) 34.75%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
 }
 .colors,
 .response,
-.mode,
-.share {
+.mode {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,6 +212,25 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   background-color: transparent;
   border: none;
   position: relative;
+  padding: 7px 10px;
+
+  &:active {
+    background-color: #18264e;
+    padding: 7px 10px;
+    border-radius: 7px;
+  }
+}
+.share {
+  background-color: #4486e9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: white;
+  border: none;
+  position: relative;
+  padding: 7px 10px;
+  border-radius: 7px;
 }
 .colors,
 .response,
@@ -220,28 +238,17 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .share span {
   font-size: 12px;
 }
-.share {
-  background-color: blue;
-  padding: 10px;
-  border-radius: 7px;
-}
+
 #colorContainer {
   gap: 15px;
   position: absolute;
-
-  bottom: 73px;
-  left: 5px;
-
-  border: 1px solid blue;
+  bottom: 70px;
+  left: 0px;
+  border: 0.5px solid #6279b4;
   border-radius: 4px;
   padding: 13px 20px;
-  background: linear-gradient(
-    91.95deg,
-    #0f1c3f 0%,
-    rgba(15, 28, 63, 0.35) 100%
-  );
+  background: #0f1c3f;
 }
-
 #color1,
 #color2,
 #color3,
