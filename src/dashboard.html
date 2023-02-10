@@ -20,7 +20,17 @@
         <button class="UpgradeBtn">Upgrade</button>
       </div>
       <div class="ImageCon" id="ImageCon">
-        <div id="textToImage" class="textToImage"></div>
+        <div
+          id="textToImage"
+          class="textToImage"
+          style="
+            background: linear-gradient(
+              101.55deg,
+              rgba(255, 255, 255, 0.9) 34.75%,
+              rgba(255, 255, 255, 0.3) 100%
+            );
+          "
+        ></div>
         <span class="waterMark">Created By <strong>gandalfapp</strong> </span>
       </div>
 
@@ -30,10 +40,10 @@
           <p>This is the content of the container.</p>
         </div> -->
         <button class="colors" id="colors" active>
-          <i class="fas fa-swatchbook"></i>
+          <i class="fas fa-swatchbook" id="colorIcon"></i>
           <span>Color</span>
         </button>
-        <div id="colorContainer" style="display: none">
+        <div id="colorContainer" class="colorContainer" style="display: none">
           <button id="color1"></button>
           <button id="color2"></button>
           <button id="color3"></button>

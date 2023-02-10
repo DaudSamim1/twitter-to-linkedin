@@ -3,7 +3,6 @@ import "./assets/styles/customButtonstyle.scss";
 let loginBtn = document.getElementById("login-btn");
 let logoutBtn = document.getElementById("logout-btn");
 
-window.location.href = "dashboard.html";
 
 let signup = localStorage.getItem("signup")
 if(signup){
