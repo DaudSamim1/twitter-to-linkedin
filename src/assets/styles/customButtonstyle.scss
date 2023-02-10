@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+
 .mainContainer {
   width: 400px;
   height: 550px;
@@ -148,6 +149,7 @@
           width: 0;
         }
 
+
         .checkbox-btn label {
           cursor: pointer;
           font-size: 13px;
@@ -184,6 +186,19 @@
           border-width: 0 2.5px 2.5px 0;
           transition: 0.2s linear;
           transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+
+        label[for="checkbox"]  {
+          width: 20px;
+          height: 18px;
+          border: 1px solid #4486e9;
+          display: inline-block;
+          border-radius: 4px;
+          text-decoration: line-through;
+
+        }
+        input[type="checkbox"]:checked + label[for="checkbox"] {
+            text-decoration: line-through;   
+
         }
 
         /* Show the checkmark when checked */
