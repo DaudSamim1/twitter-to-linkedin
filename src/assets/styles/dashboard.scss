@@ -9,7 +9,9 @@
 }
 
 body {
+
   width: 525px;
+
   height: 578px;
   background: #1e1e1e;
   // font-family: "Inter", sans-serif;
@@ -180,8 +182,10 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   display: flex;
   align-items: center;
   justify-content: space-around;
+
   width: 312px;
   height: 57px;
+
   margin: auto;
   padding: 7px 20px;
   margin-top: 30px;

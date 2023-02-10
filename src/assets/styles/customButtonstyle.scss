@@ -6,12 +6,11 @@
   box-sizing: border-box;
 }
 
-
 .mainContainer {
   width: 400px;
-  height: 540px;
+  height: 555px;
   background: #1a1d25;
-  padding-top: 40px;
+  padding-top: 30px;
 
   .middleContainer {
     width: 300px;
@@ -28,7 +27,7 @@
       align-items: center;
       gap: 10px;
     }
-    .leftSide a{
+    .leftSide a {
       text-decoration: none;
     }
 
@@ -39,7 +38,7 @@
       padding: 10px;
     }
 
-    .signUplink  {
+    .signUplink {
       font-style: normal;
       font-weight: 700;
       font-size: 15px;
@@ -81,8 +80,8 @@
 
     input {
       border: 1px solid #4d4d4d;
-      border-radius: 15px;
-      padding: 10px 26px 10px 20px;
+      border-radius: 10px;
+      padding: 12px 18px 12px 18px;
       background-color: transparent;
       outline: none;
       color: #e0e0e0;
@@ -94,7 +93,7 @@
       background: #4486e9;
       transition: background-color 0.3s, box-shadow 0.3s;
       border-radius: 15px;
-      padding: 12px;
+      padding: 14px;
       margin-top: 10px;
       font-weight: 600;
       font-size: 14px;
@@ -124,51 +123,100 @@
     }
     .forgetContent {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin: 6px 10px 0 10px;
+      margin: 10px 5px 0 5px;
+      align-items: baseline;
 
       .checkBox {
-        display: flex;
-        align-items: center;
 
-        input[type="checkbox"] {
-          display: none;
+        display: block;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        .checkbox-btn input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
         }
 
-        label[for="checkbox"]  {
-          width: 20px;
-          height: 18px;
-          border: 1px solid #4486e9;
-          display: inline-block;
+        .checkbox-btn label {
+          cursor: pointer;
+          font-size: 13px;
+          padding: 0;
+        }
+        
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 25px;
+          width: 25px;
+          border: 1px solid #4486E9;
           border-radius: 4px;
-          text-decoration: line-through;
+          transition: 0.2s linear;
+        }
+        .checkbox-btn input:checked ~ .checkmark {
+          background-color: transparent;
+        }
 
-        }
-        input[type="checkbox"]:checked + label[for="checkbox"] {
-            text-decoration: line-through;   
-        }
-        span {
-          font-style: normal;
-          font-weight: 500;
-          font-size: 12px;
-          margin-left: 8px;
-          line-height: 24px;
-          color: #e0e0e0;
-        }
        
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          left: 50%;
+          top: 40%;
+          width: 10px;
+          height: 14px;
+          border: 2px solid #4486E9;
+          filter: drop-shadow(0px 0px 10px #4486E9);
+          border-width: 0 2.5px 2.5px 0;
+          transition: 0.2s linear;
+          transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+        }
+
+        
+        .checkbox-btn input:checked ~ .checkmark:after {
+          visibility: visible;
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(0deg) scale(1);
+          animation: pulse 1s ease-in;
+        }
+
+        .checkbox-btn input:checked ~ .checkmark {
+          transform: rotate(45deg);
+          border: none;
+        }
+
+        @keyframes pulse {
+          0%,
+          100% {
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+          }
+          50% {
+            transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+          }
+        }
       }
-      .forgetPswd a{
-          text-decoration: none;
+      .forgetPswd a {
+        text-decoration: none;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
         line-height: 24px;
-      color: #4486E9;
-    }
+        color: #4486e9;
+      }
     }
   }
-  #logout-btn{
+  #logout-btn {
     display: none;
   }
 }
