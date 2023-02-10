@@ -50,21 +50,25 @@ backgroundChangeBtn.addEventListener("click", function () {
 
 // dark and light mode
 let cardCode = document.querySelector("#mode");
-let currentCardColor =
-  " linear-gradient(101.55deg, rgba(255, 255, 255, 0.9) 34.75%, rgba(255, 255, 255, 0.3) 100%); ";
+let darkMode = document.getElementById("sun");
+let lightMode = document.getElementById("moon");
+let currentCardColor = display.style.background;
 console.log(currentCardColor);
 cardCode.addEventListener("click", function () {
-  if (currentCardColor) {
-    console.log('hit')
-    display.style.background =
-      `linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)`;
-    currentCardColor =
-      " linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)";
-    display.style.color = "white";
-  } else {
-    display.style.backgroundColor = currentCardColor;
-    currentCardColor = currentCardColor;
+  let currentCardColor = display.style.background;
+  if (
+    currentCardColor ===
+    `linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)`
+  ) {
+    display.style.background = "";
     display.style.color = "black";
+    darkMode.style.display = "block";
+    lightMode.style.display = "none";
+  } else {
+    display.style.background = `linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)`;
+    display.style.color = "white";
+    darkMode.style.display = "none";
+    lightMode.style.display = "block";
   }
 });
 
