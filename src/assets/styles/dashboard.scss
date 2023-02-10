@@ -9,7 +9,7 @@
 }
 
 body {
-  width: 780px;
+  width: 525px;
   height: 578px;
   background: #1e1e1e;
   // font-family: "Inter", sans-serif;
@@ -28,23 +28,22 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  margin-top: 21px;
+  padding: 0 16px;
+  margin-top: 14px;
 }
 .loginBtn,
 .signInBtn,
 .UpgradeBtn {
   text-decoration: transparent;
   color: white;
-  padding: 4px 19px;
   background: #4486e9;
-  border-radius: 10px;
+  border-radius: 6px;
   border: none;
-  width: 102px;
-  height: 42px;
-  margin-right: 6px;
+  width: 76px;
+  height: 30px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 12px;
+  padding: 0 10px;
   &:hover {
     background-color: transparent;
     border: 1px solid #4486e9;
@@ -56,13 +55,13 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: lowercase;
-  font-size: 19px;
+  font-size: 14px;
   font-weight: 600;
 }
 .UpgradePlan {
   display: flex;
   justify-content: space-between;
-  padding: 29px 124px 0;
+  padding: 29px 62px 0;
   align-items: flex-end;
 }
 
@@ -78,11 +77,11 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 }
 .waterMark {
   float: right;
-  margin: 5px 32px 0px 0px;
+  margin: 6px 5px 0px 0px;
 }
 .ImageCon {
   padding: 25px;
-  width: 550px;
+  width: 425px;
   margin: 8px auto 18px;
 
   background: linear-gradient(
@@ -93,12 +92,12 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
     #59dfbf 100%
   );
   // box-shadow: 10px 10px 20px rgba(17, 17, 17, 0.25);
-  border-radius: 15px;
+  border-radius: 6px;
 }
 .textToImage {
-  max-width: 97%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 25px 7px;
+  padding: 15px 7px;
   text-align: start;
   display: flex;
   align-items: center;
@@ -110,12 +109,12 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   );
 
   // box-shadow: 10px 10px 25px rgba(96, 96, 96, 0.25);
-  border-radius: 15px;
+  border-radius: 6px;
 }
 .userDetail {
   display: flex;
   gap: 7px;
-  align-items: center;
+  align-items: flex-start;
   margin-left: 7px;
 }
 .userName {
@@ -133,9 +132,10 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   font-size: 12px;
   line-height: 14.78px;
   color: #b0b0b0;
+  margin-top: -3px;
 }
 .time {
-  padding: 8px 0px 8px 20px;
+  padding: 0px 0px 8px 12px;
   font-weight: 500;
   font-size: 12px;
   line-height: 14.78px;
@@ -150,7 +150,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 .tweetExpressions {
   justify-content: flex-start;
   gap: 27px;
-  padding-left: 23px;
+  padding-left: 13px;
 }
 .exp {
   font-weight: 500;
@@ -166,11 +166,13 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   background-color: rgb(99, 149, 99);
 }
 .showImage {
-  width: 550px;
+  width: 425px;
   margin: 18px auto;
 }
 .avatar {
-  border-radius: 25px;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
 }
 .effectsContainer {
   position: relative;
@@ -178,11 +180,11 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 365px;
-  height: 70px;
+  width: 312px;
+  height: 57px;
   margin: auto;
   padding: 7px 20px;
-  margin-top: 35px;
+  margin-top: 30px;
 
   background: #0f1c3f;
 
@@ -229,7 +231,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
   color: white;
   border: none;
   position: relative;
-  padding: 7px 10px;
+  padding: 5px 9px;
   border-radius: 7px;
 }
 .colors,
@@ -242,7 +244,7 @@ $colors: linear-gradient(to right, #f44336, #e91e63),
 #colorContainer {
   gap: 15px;
   position: absolute;
-  bottom: 70px;
+  bottom: 58px;
   left: 0px;
   border: 0.5px solid #6279b4;
   border-radius: 4px;

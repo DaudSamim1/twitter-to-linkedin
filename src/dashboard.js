@@ -62,13 +62,13 @@ cardCode.addEventListener("click", function () {
   ) {
     display.style.background = "";
     display.style.color = "black";
-    darkMode.style.display = "block";
-    lightMode.style.display = "none";
+    // darkMode.style.display = "block";
+    // lightMode.style.display = "none";
   } else {
     display.style.background = `linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)`;
     display.style.color = "white";
-    darkMode.style.display = "none";
-    lightMode.style.display = "block";
+    // darkMode.style.display = "none";
+    // lightMode.style.display = "block";
   }
 });
 
@@ -118,7 +118,7 @@ chrome.storage.sync.get(["message"], function (result) {
       tweetExpressions.style.display = "none";
     }
   });
-  //   imageConvertion();
+//   imageConvertion();
   //   });
   async function imageConvertion() {
     window.pageYOffset = 0;
