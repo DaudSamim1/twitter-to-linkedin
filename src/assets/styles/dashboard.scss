@@ -99,6 +99,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  padding-top: 45px;
+  gap: 47px;
 }
 
 .planType {
@@ -197,6 +199,9 @@ body {
   padding-left: 13px;
 }
 .exp {
+  display: flex;
+  align-items: center;
+  gap: 3px;
   font-weight: 500;
   font-size: 12px;
   line-height: 14.4px;
@@ -206,6 +211,7 @@ body {
   margin-left: 3px;
   font-size: 11px;
 }
+
 .backColorBtn {
   background-color: rgb(99, 149, 99);
 }

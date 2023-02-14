@@ -34,9 +34,9 @@ let initialInterval = setInterval(() => {
               btnSend.style.color = "black";
             } else if (
               document.getElementsByTagName("body")[0].style.backgroundColor ==
-                "rgb(21, 32, 43)" ||
+              "rgb(21, 32, 43)" ||
               document.getElementsByTagName("body")[0].style.backgroundColor ==
-                "rgb(0, 0, 0)"
+              "rgb(0, 0, 0)"
             ) {
               document.querySelector(".btn_unique").style.color = "white";
             }
@@ -45,7 +45,7 @@ let initialInterval = setInterval(() => {
             btnSend.addEventListener("click", () => {
               let array = [];
 
-              var parentDiv = document.querySelector(
+              let parentDiv = document.querySelector(
                 "div[data-testid='User-Names']"
               ).innerText;
               array.push(parentDiv);
@@ -58,7 +58,7 @@ let initialInterval = setInterval(() => {
 
               let imageUrl;
               try {
-                const avatar = articleT.querySelector("img");
+                let avatar = articleT.querySelector("img");
                 imageUrl = avatar.src;
               } catch (error) {
                 console.error(
@@ -73,18 +73,10 @@ let initialInterval = setInterval(() => {
               );
               try {
                 tweetText = tweetText.innerHTML;
+                console.log('console', tweetText)
               } catch (error) {
                 tweetText = null;
               }
-
-              // let username = articleT.querySelector(
-              //   "div[data-testid='User-Names']"
-              // ).children[0].innerText;
-              // try {
-              //   username = username.innerText;
-              // } catch (error) {
-              //   username = null;
-              // }
               let username;
               try {
                 username = articleT.querySelector(
@@ -97,10 +89,6 @@ let initialInterval = setInterval(() => {
                 );
                 username = null;
               }
-              console.log(username);
-              // let handle = articleT.querySelector(
-              //   "div[data-testid='User-Names']"
-              // ).children[1].children[0].children[0].innerText;
               let handle;
               try {
                 handle = articleT.querySelector("div[data-testid='User-Names']")
@@ -131,9 +119,7 @@ let initialInterval = setInterval(() => {
                   error
                 );
                 timestamp = null;
-              }
-
-              // let timestamp = timeElement.getAttribute("datetime");
+              } // let timestamp = timeElement.getAttribute("datetime");
               console.log(timestamp);
 
               const date = new Date(timestamp);
