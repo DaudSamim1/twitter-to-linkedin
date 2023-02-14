@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="mainContainer">
-      <div class="topBar">
-        <span class="title">gandalfapp</span>
-        <div class="authBtn">
-          <button class="loginBtn" id="dashboardLogin">Log in</button>
-          <button class="signInBtn" id="dashboardsignup">Sign Up</button>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="mainContainer">
+    <div class="topBar">
+      <span class="title">tweet2linkedin</span>
+      <div class="authBtn-row">
+        <button class="loginBtn authBtn" id="dashboardLogin">Log in</button>
+        <button class="signInBtn authBtn" id="dashboardsignup">Sign Up</button>
       </div>
+    </div>
+    <div class="inner_container">
       <div class="UpgradePlan">
         <h5 class="CP">Current Plan <span class="planType">Free</span></h5>
         <button class="UpgradeBtn">
-          <img src="./assets/images/upgrade.svg" alt="" /> Upgrade
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19.609 12.0616L19.8382 9.62632C20.0182 7.7137 20.1082 6.75739 19.781 6.36207C19.604 6.14823 19.3633 6.0172 19.106 5.9946C18.6303 5.95282 18.0329 6.6329 16.8381 7.99307C16.2202 8.69649 15.9113 9.0482 15.5666 9.10267C15.3757 9.13285 15.1811 9.10182 15.0047 9.01308C14.6865 8.85292 14.4743 8.41812 14.0499 7.54851L11.8131 2.96485C11.0112 1.32162 10.6102 0.5 10 0.5C9.3898 0.5 8.98885 1.32162 8.18693 2.96486L5.95007 7.54852C5.5257 8.41812 5.31351 8.85292 4.99526 9.01308C4.81892 9.10182 4.62434 9.13285 4.43337 9.10267C4.08872 9.0482 3.77977 8.69649 3.16187 7.99307C1.96708 6.6329 1.36968 5.95282 0.893987 5.9946C0.636658 6.0172 0.395979 6.14823 0.218986 6.36207C-0.108204 6.75739 -0.0181999 7.7137 0.161808 9.62632L0.391002 12.0616C0.768652 16.0742 0.957478 18.0805 2.14009 19.2902C3.32271 20.5 5.09517 20.5 8.64008 20.5H11.3599C14.9048 20.5 16.6773 20.5 17.8599 19.2902C19.0425 18.0805 19.2313 16.0742 19.609 12.0616Z"
+              fill="#E0E0E0" />
+          </svg>
+          <!-- <span class="upgradeIcon" id="upgradeIcon"></span> -->
+          <!-- <img src="./assets/images/upgrade.svg" alt="upgradeIcon" /> -->
+
+          Upgrade
         </button>
       </div>
       <div class="ImageCon" id="ImageCon">
-        <div
-          id="textToImage"
-          class="textToImage"
-          style="
-            background: linear-gradient(
-              101.55deg,
-              rgba(255, 255, 255, 0.9) 34.75%,
-              rgba(255, 255, 255, 0.3) 100%
-            );
-          "
-        ></div>
-        <span class="waterMark">Created By <strong>gandalfapp</strong> </span>
+        <div id="textToImage" class="textToImage" style="
+              background: linear-gradient(
+                101.55deg,
+                rgba(255, 255, 255, 0.9) 34.75%,
+                rgba(255, 255, 255, 0.3) 100%
+              );
+            "></div>
+        <span class="waterMark">Created by <strong>tweet2linkedin</strong>
+        </span>
       </div>
 
-      <div class="effectsContainer">
-        <button class="colors" id="colors" active>
-          <i class="fas fa-swatchbook" id="colorIcon"></i>
-          <span>Color</span>
-        </button>
-        <div id="colorContainer" class="colorContainer" style="display: none">
-          <button id="color1"></button>
-          <button id="color2"></button>
-          <button id="color3"></button>
-          <button id="color4"></button>
-          <button id="color5"></button>
-          <button id="color6"></button>
-        </div>
-        <button id="mode" class="mode">
-          <i class="fad fa-moon" id="moon" ></i
-          ></i
-          ><span>Mode</span>
-        </button>
-        <button id="response" class="response">
-          <i class="fas fa-exchange-alt"></i><span>Response</span>
-        </button>
-
-        <button class="share">
-          <i class="fas fa-upload"></i> <span>Share</span>
-        </button>
-      </div>
-      <div class="showImage" id="showImage"></div>
     </div>
-  </body>
+
+    <div class="effectsContainer">
+      <button class="colors" id="colors" active>
+        <!-- <span class="palette" id="palette"></span> -->
+        <i class="fal fa-swatchbook" id="colorPalette"></i>
+        <span>Color</span>
+      </button>
+      <div id="colorContainer" class="colorContainer" style="display: none">
+        <button id="color1"></button>
+        <button id="color2"></button>
+        <button id="color3"></button>
+        <button id="color4"></button>
+        <button id="color5"></button>
+        <button id="color6"></button>
+      </div>
+      <button id="mode" class="mode">
+        <span class="moon" id="moonFull" style="display: flex"></span>
+        <span class="sun" id="sunFull" style="display: none"></span>
+        <span>Mode</span>
+      </button>
+      <button id="response" class="response">
+        <span class="arrows" id="arrows" style="display: flex"></span>
+        <span class="arrows_out" id="arrows_out" style="display: none"></span>
+        <span>Response</span>
+      </button>
+
+      <button class="share">
+        <span class="share" id="share"></span><span>Share</span>
+      </button>
+    </div>
+    <div class="showImage" id="showImage"></div>
+  </div>
+</body>
+
 </html>

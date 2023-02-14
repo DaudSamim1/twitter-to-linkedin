@@ -1,5 +1,33 @@
 import "./assets/styles/dashboard.scss";
 import html2canvas from "html2canvas";
+
+let waterMark = document.querySelector(".waterMark");
+let colorPalette = document.getElementById("colorPalette");
+import arrows from "./assets/images/arrows.png";
+import moon_full from "./assets/images/moon_full.png";
+import sun_full from "./assets/images/sun_full.png";
+import arrows_out from "./assets/images/arrows_out.png";
+import ugrade_icon from "./assets/images/upgrade.svg";
+import share from "./assets/images/share_full.png";
+document.getElementById(
+  "moonFull"
+).innerHTML = `<img src="${moon_full}" alt="Your SVG file">`;
+document.getElementById(
+  "arrows"
+).innerHTML = `<img src="${arrows}" alt="Your SVG file">`;
+document.getElementById(
+  "sunFull"
+).innerHTML = `<img src="${sun_full}" alt="Your SVG file">`;
+document.getElementById(
+  "arrows_out"
+).innerHTML = `<img src="${arrows_out}" alt="Your SVG file">`;
+document.getElementById(
+  "share"
+).innerHTML = `<img src="${share}" alt="Your SVG file">`;
+// document.getElementById(
+//   "upgradeIcon"
+// ).innerHTML = `<img src="${ugrade_icon}" alt="Your SVG file">`;
+
 let display = document.querySelector("#textToImage");
 let displayImage = document.getElementById("ImageCon");
 let data;
@@ -17,8 +45,8 @@ let color5 = document.querySelector("#color5");
 let color6 = document.querySelector("#color6");
 let allButtonToChangeColor = colorContainer.querySelectorAll("button");
 let colors = [
-  "linear-gradient(104.34deg,  #FFDEDE 0%, #FFF8DE 33.33%,#E9FFDE 66.67%,#59DFBF 100%)",
-  "linear-gradient(104.34deg,#6E72D7 0%,#6E72D7 0%, #6E72D7 0%, #000467 66.67%,#000231 100%)",
+  " linear-gradient(104.34deg, #FFDEDE 0%, #FFF8DE 33.33%, #E9FFDE 66.67%, #59DFBF 100%)",
+  " linear-gradient(104.34deg, #6E72D7 0%, #0009DF 33.33%, #000467 66.67%, #000231 100%)",
   "linear-gradient(104.34deg, #9DFF6F 0%, #004624 100%)",
   "linear-gradient(104.34deg, #FFEE7D 0%, #B767FF 33.33%, #B7AFFF 66.67%, #44FADD 100%)",
   "linear-gradient(104.34deg, #FFDEFC 0%, #FD79D8 50%, #FF006B 100%)",
@@ -34,24 +62,51 @@ color6.style.background = colors[5];
 allButtonToChangeColor.forEach((button, index) => {
   button.addEventListener("click", () => {
     displayImage.style.background = colors[index];
-    // console.log((iconColor.style.color = colors[index]));
-    iconColor.style.color = colors[index];
+    colorPalette.style.background = colors[index];
   });
 });
 
-// buttons for changing background color
-backgroundChangeBtn.addEventListener("click", function () {
-  if (colorContainer.style.display === "none") {
-    colorContainer.style.display = "flex";
-  } else {
+var colorContainerVisible = false;
+
+backgroundChangeBtn.addEventListener("mouseenter", function () {
+  colorContainer.style.display = "flex";
+  colorContainerVisible = true;
+});
+
+backgroundChangeBtn.addEventListener("mouseleave", function () {
+  colorContainerVisible = false;
+  setTimeout(function () {
+    if (!colorContainerVisible) {
+      colorContainer.style.display = "none";
+    }
+  }, 200);
+});
+colorContainer.addEventListener("mouseenter", function () {
+  colorContainerVisible = true;
+});
+
+colorContainer.addEventListener("mouseleave", function () {
+  colorContainerVisible = false;
+  setTimeout(function () {
+    if (!colorContainerVisible) {
+      colorContainer.style.display = "none";
+    }
+  }, 200);
+});
+document.addEventListener("click", function (event) {
+  if (
+    colorContainer.style.display === "block" &&
+    event.target !== colorContainer &&
+    !colorContainer.contains(event.target)
+  ) {
     colorContainer.style.display = "none";
   }
 });
 
 // dark and light mode
 let cardCode = document.querySelector("#mode");
-let darkMode = document.getElementById("sun");
-let lightMode = document.getElementById("moon");
+let darkMode = document.getElementById("sunFull");
+let lightMode = document.getElementById("moonFull");
 let currentCardColor = display.style.background;
 console.log(currentCardColor);
 cardCode.addEventListener("click", function () {
@@ -62,13 +117,18 @@ cardCode.addEventListener("click", function () {
   ) {
     display.style.background = "";
     display.style.color = "black";
-    // darkMode.style.display = "block";
-    // lightMode.style.display = "none";
+
+    if (lightMode.style.display != "flex") {
+      lightMode.style.display = "flex";
+      darkMode.style.display = "none";
+      waterMark.style.color = "black";
+    }
   } else {
     display.style.background = `linear-gradient(101.55deg, rgba(19, 19, 19, 0.9) 22.23%, rgba(19, 19, 19, 0.3) 100%)`;
     display.style.color = "white";
-    // darkMode.style.display = "none";
-    // lightMode.style.display = "block";
+    darkMode.style.display = "flex";
+    lightMode.style.display = "none";
+    waterMark.style.color = "black";
   }
 });
 
@@ -85,18 +145,18 @@ chrome.storage.sync.get(["message"], function (result) {
   html = `
               <div class="imageDisplay">
       <div class="userDetail">
-        <img src="${data.avatar}" class="avatar" />
+        <img src="${data.avatar ? `${data.avatar}` : ``}" class="avatar" />
         <div class="userName">
-          <h2 class="name">${data.username}</h2>
-          <h5 class="handle">${data.handle}</h5>
+          <h2 class="name">${data.username ? `${data.username}` : ``}</h2>
+          <h5 class="handle">${data.handle ? `${data.handle}` : ``}</h5>
         </div>
       </div>
       <p class="tweetText">${data.tweetText ? `${data.tweetText}` : ``}
 </p>
-      <h5 class="time">${data.timestamp}</h5>
+      <h5 class="time">${data.timestamp ? `${data.timestamp}` : ``}</h5>
       <div id="tweetExpressions" class="tweetExpressions" style="display:flex">
         <h3 class="exp"
-          >${data.reply}<span>reply</span></h3
+          >${data.reply}<span>replies</span></h3
         >
         <h3 class="exp"
           >${data.retweet}<span>Shares</span></h3
@@ -111,14 +171,22 @@ chrome.storage.sync.get(["message"], function (result) {
   display.innerHTML = html;
   document.querySelector("#response").addEventListener("click", function () {
     let tweetExpressions = document.querySelector(".tweetExpressions");
+    let expVisible = document.getElementById("arrows");
+    let expHide = document.getElementById("arrows_out");
     console.log("work");
     if (tweetExpressions.style.display != "flex") {
       tweetExpressions.style.display = "flex";
+      if (expVisible.style.display != "flex") {
+        expVisible.style.display = "flex";
+        expHide.style.display = "none";
+      }
     } else {
       tweetExpressions.style.display = "none";
+      expHide.style.display = "flex";
+      expVisible.style.display = "none";
     }
   });
-//   imageConvertion();
+  // imageConvertion();
   //   });
   async function imageConvertion() {
     window.pageYOffset = 0;
@@ -129,6 +197,7 @@ chrome.storage.sync.get(["message"], function (result) {
     html2canvas(displayImage, {
       allowTaint: true,
       taintTest: false,
+      scale: 2,
       type: "view",
     }).then(function (canvas) {
       const sreenshot = document.getElementById("showImage");

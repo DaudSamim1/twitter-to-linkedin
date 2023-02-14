@@ -1,5 +1,6 @@
 import "./assets/styles/customButtonstyle.scss";
 let sendButton;
+
 // Initialize an interval to check for the menu button every second
 let initialInterval = setInterval(() => {
   document.querySelectorAll(".r-1joea0r").forEach((item) => {
@@ -55,24 +56,63 @@ let initialInterval = setInterval(() => {
                 "article[data-testid='tweet']"
               ).parentElement;
 
-              let avatar = articleT.querySelector("img");
-              let imageUrl = avatar.src;
+              let imageUrl;
+              try {
+                const avatar = articleT.querySelector("img");
+                imageUrl = avatar.src;
+              } catch (error) {
+                console.error(
+                  "An error occurred while trying to get the avatar image URL:",
+                  error
+                );
+                imageUrl = null;
+              }
+
               let tweetText = articleT.querySelector(
                 "div[data-testid='tweetText']"
               );
               try {
-                tweetText = tweetText.innerText;
+                tweetText = tweetText.innerHTML;
               } catch (error) {
                 tweetText = null;
               }
-              let username = articleT.querySelector(
-                "div[data-testid='User-Names']"
-              ).children[0].innerText;
-              console.log(username, "username");
-              let handle = articleT.querySelector(
-                "div[data-testid='User-Names']"
-              ).children[1].children[0].children[0].innerText;
 
+              // let username = articleT.querySelector(
+              //   "div[data-testid='User-Names']"
+              // ).children[0].innerText;
+              // try {
+              //   username = username.innerText;
+              // } catch (error) {
+              //   username = null;
+              // }
+              let username;
+              try {
+                username = articleT.querySelector(
+                  "div[data-testid='User-Names']"
+                ).children[0].innerText;
+              } catch (error) {
+                console.error(
+                  "An error occurred while trying to get the username:",
+                  error
+                );
+                username = null;
+              }
+              console.log(username);
+              // let handle = articleT.querySelector(
+              //   "div[data-testid='User-Names']"
+              // ).children[1].children[0].children[0].innerText;
+              let handle;
+              try {
+                handle = articleT.querySelector("div[data-testid='User-Names']")
+                  .children[1].children[0].children[0].innerText;
+              } catch (error) {
+                console.error(
+                  "An error occurred while trying to get the handle:",
+                  error
+                );
+                handle = null;
+              }
+              console.log(handle);
               let reply = articleT.querySelector(
                 "div[data-testid='reply']"
               ).innerText;
@@ -80,9 +120,20 @@ let initialInterval = setInterval(() => {
               if (reply == null || reply == ``) {
                 reply = "0";
               }
-              console.log(reply);
-              let timeElement = articleT.querySelector("time");
-              let timestamp = timeElement.getAttribute("datetime");
+
+              let timestamp;
+              try {
+                const timeElement = articleT.querySelector("time");
+                timestamp = timeElement.getAttribute("datetime");
+              } catch (error) {
+                console.error(
+                  "An error occurred while trying to get the timestamp:",
+                  error
+                );
+                timestamp = null;
+              }
+
+              // let timestamp = timeElement.getAttribute("datetime");
               console.log(timestamp);
 
               const date = new Date(timestamp);
@@ -102,7 +153,6 @@ let initialInterval = setInterval(() => {
                 "Dec",
               ];
               const month = months[date.getMonth()];
-              // const month = date.getMonth() + 1; // JavaScript's months are 0-indexed
               const day = date.getDate();
               const timeString = date.toLocaleTimeString("en-US", {
                 hour: "numeric",
@@ -110,7 +160,6 @@ let initialInterval = setInterval(() => {
                 hour12: true,
               });
               const dateTimeString = ` ${timeString} . ${month} ${day} `;
-              // console.log(dateTimeString);
 
               let retweet = articleT.querySelector(
                 "div[data-testid='retweet']"
@@ -139,7 +188,6 @@ let initialInterval = setInterval(() => {
 
               chrome.runtime.sendMessage({
                 message: "postData",
-                // data: tweetData,
               });
 
               chrome.storage.sync.set({ message: tweetData }, function () {
