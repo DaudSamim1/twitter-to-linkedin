@@ -17,6 +17,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "build"),
+
     clean: true,
   },
   module: {
@@ -40,10 +41,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jp?g|svg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: "url-loader",
+            options: {
+              limit: 5000,
+            },
           },
         ],
       },
